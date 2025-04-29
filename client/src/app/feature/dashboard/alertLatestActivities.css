@@ -1,0 +1,24 @@
+/* alertLatestActivities.css */
+@keyframes scrollLoop {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+#scroll-container {
+  overflow: hidden;
+  position: relative;
+  height: 16rem;
+}
+
+#scroll-content {
+  display: inline-block;
+  animation: scrollLoop 30s linear infinite;
+}
+
+#scroll-container:hover #scroll-content {
+  animation-play-state: paused;
+}

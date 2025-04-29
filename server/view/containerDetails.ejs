@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .container-box { width: 50%; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 2px 2px 10px #aaa; }
+        h1 { color: #333; }
+        p { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container-box">
+        <h1>Container Details</h1>
+        <p><strong>Container ID:</strong> <%= container.containerId %></p>
+        <p><strong>Admin Name:</strong> <%= container.adminName %></p>
+        <p><strong>Container Name:</strong> <%= container.containerName %></p>
+        <p><strong>Container Size:</strong> <%= container.containerSize %></p>
+        <p><strong>Stock Available:</strong> <%= container.inStock %></p>
+        <p><strong>Outward:</strong> <%= container.Outward %></p>
+        <p><strong>Inward:</strong> <%= container.Inward %></p>
+    </div>
+</body>
+</html>
