@@ -17,12 +17,12 @@ jobs:
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USER }}
+        username: ${{ secrets.DO_USER || 'root' }}
         key: ${{ secrets.DO_SSH_KEY }}
         port: ${{ secrets.DO_PORT || '22' }}
         script: |
           echo "✅ Connected to server"
-          cd /home/your-app || exit 1
+          cd /home/PlastiTrack || exit 1
           echo "📂 Current directory: $(pwd)"
           git pull origin develop
           echo "🔄 Pulled latest changes from develop branch"
