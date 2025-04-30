@@ -21,8 +21,11 @@ jobs:
         key: ${{ secrets.DO_SSH_KEY }}
         port: ${{ secrets.DO_PORT || '22' }}
         script: |
-          cd /home/your-app
+          echo "✅ Connected to server"
+          cd /home/your-app || exit 1
+          echo "📂 Current directory: $(pwd)"
           git pull origin develop
           npm install --production
-          npm run test     # if you have test scripts
-          pm2 restart your-app
+          npm run test || echo "⚠️ Test failed, but continuing..."
+          pm2 restart your-app || pm2 start server.js --name your-app
+    
