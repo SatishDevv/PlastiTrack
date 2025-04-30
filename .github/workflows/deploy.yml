@@ -22,7 +22,7 @@ jobs:
         port: ${{ secrets.DO_PORT || '22' }}
         script: |
           echo "✅ Connected to server"
-          cd /home/PlastiTrack || exit 1
+          cd /home || exit 1
           echo "📂 Current directory: $(pwd)"
           git pull origin develop
           echo "🔄 Pulled latest changes from develop branch"
