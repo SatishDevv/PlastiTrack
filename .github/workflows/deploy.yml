@@ -20,4 +20,4 @@ jobs:
 
       - name: Run deploy script on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@$159.65.155.83 'bash /home/PlastiTrack/deploy/deploy.sh'
+          ssh -o StrictHostKeyChecking=no root@159.65.155.83 'bash /home/PlastiTrack/deploy/deploy.sh'
