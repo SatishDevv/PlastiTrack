@@ -1,6 +1,6 @@
 export const ENDPOINT = {
   BASE_URL: "http://localhost:3000",
-  API_BASE_URL: "http://localhost:3000/api/v1",
+  API_BASE_URL: "http://159.65.155.83/api/v1",
   AUTH: {
     API: {
       login: "/user/login",
