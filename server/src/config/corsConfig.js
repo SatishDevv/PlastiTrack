@@ -1,19 +1,25 @@
-import cors from "cors";
+import cors from 'cors';
 
 export const configureCors = () => {
+  let allowedOrigins = [];
+
+  try {
+    allowedOrigins = JSON.parse(process.env.ORIGIN || '[]');
+  } catch (error) {
+    console.error('❌ Failed to parse ORIGIN env variable:', error.message);
+  }
+
   return cors({
     origin: (origin, callback) => {
-      const allowedOrigins = process.env.ORIGIN;
-
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        callback(new Error('Not allowed by CORS'));
       }
     },
-    methods: ["GET", "POST", "PUT", "DELETE"], // allowed only this method
-    allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
-    credentials: true, //
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token'],
+    credentials: true,
     preflightContinue: false,
     maxAge: 600,
     optionsSuccessStatus: 204,
