@@ -1,4 +1,4 @@
-name: Deploy on Merge to Develop
+name: Deploy to Ubuntu Server
 
 on:
   push:
@@ -10,19 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.DO_HOST }}
-        username: ${{ secrets.DO_USER || 'root' }}
-        key: ${{ secrets.DO_SSH_KEY }}
-        port: ${{ secrets.DO_PORT || '22' }}
-        script: |
-          echo "✅ Connected to server"
-          cd /home || exit 1
-          echo "📂 Current directory: $(pwd)"
-          git pull origin develop
-          echo "🔄 Pulled latest changes from develop branch"
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Run deploy script on server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@$159.65.155.83 'bash /home/PlastiTrack/deploy/deploy.sh'
