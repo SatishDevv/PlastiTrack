@@ -15,6 +15,7 @@ cd "$REPO_DIR"
 echo "📥 Pulling latest changes from develop branch..."
 git checkout develop
 git pull origin develop
+echo "🔄 Code updated to latest version"
 
 # Install and build frontend
 echo "🔧 Installing frontend dependencies..."
@@ -38,6 +39,12 @@ npm install
 
 # Restart backend using PM2
 echo "🔄 Restarting backend with PM2..."
-pm2 startOrReload ecosystem.config.js
+pm2 startOrReload server.js --name plastiTrack 
+
+# Restart Nginx server
+echo "🔄 Restarting Nginx..."
+sudo systemctl restart nginx
+
+
 
 echo "✅ Deployment complete!"
