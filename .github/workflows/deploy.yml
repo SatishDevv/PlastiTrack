@@ -18,6 +18,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
-      - name: Run deploy script on server
+
+      - name: Create file on DigitalOcean server
         run: |
-          ssh -o StrictHostKeyChecking=no root@159.65.155.83 'bash /home/PlastiTrack/deploy/deploy.sh'
+          ssh ${{ secrets.DIGITALOCEAN_USER }}@${{ secrets.DIGITALOCEAN_HOST }} "echo 'Hello from GitHub Actions!' > ~/home/github-action-test.txt"
+
+      # - name: Run deploy script on server
+      #   run: |
+      #     ssh -o StrictHostKeyChecking=no root@159.65.155.83 'bash /home/PlastiTrack/deploy/deploy.sh'
