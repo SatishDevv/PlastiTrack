@@ -31,6 +31,8 @@ sudo cp -r dist/* "$NGINX_ROOT/"
 # Install backend dependencies
 echo "🔧 Installing backend dependencies..."
 cd "$BACKEND_DIR"
+echo "📦 env file..."
+sudo cp -r .env.example .env
 npm install
 
 # Restart backend using PM2
