@@ -39,7 +39,7 @@ npm install
 
 # Restart backend using PM2
 echo "🔄 Restarting backend with PM2..."
-pm2 startOrReload ecosystem.config.mjs --esm
+pm2 startOrReload ecosystem.config.mjs
 
 # Restart Nginx server
 echo "🔄 Restarting Nginx..."
