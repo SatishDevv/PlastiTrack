@@ -39,8 +39,7 @@ npm install
 
 # Restart backend using PM2
 echo "🔄 Restarting backend with PM2..."
-pm2 startOrReload ecosystem.config.js
-
+pm2 start server.js --name plastiTrack --env production
 # Restart Nginx server
 echo "🔄 Restarting Nginx..."
 sudo systemctl restart nginx
