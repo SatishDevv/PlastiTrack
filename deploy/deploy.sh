@@ -39,7 +39,7 @@ npm install
 
 # Restart backend using PM2
 echo "🔄 Restarting backend with PM2..."
-pm2 startOrReload server.js --name plastiTrack 
+pm2 reload server.js --name plastiTrack 
 
 # Restart Nginx server
 echo "🔄 Restarting Nginx..."
