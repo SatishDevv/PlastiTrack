@@ -54,7 +54,7 @@ npm install || exit_on_error "Failed to install backend dependencies"
 
 # Restart backend using PM2
 echo "🔄 Restarting backend with PM2..."
-pm2 restart my-api || exit_on_error "PM2 restart failed"
+pm2 restart PlastiTrack || exit_on_error "PM2 restart failed"
 
 # Restart Nginx server
 echo "🔄 Restarting Nginx..."
