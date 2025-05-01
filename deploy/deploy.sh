@@ -9,6 +9,7 @@ FRONTEND_DIR="$REPO_DIR/client"
 BACKEND_DIR="$REPO_DIR/server"
 NGINX_ROOT="/var/www/plastTrack"
 
+
 # Pull latest code
 cd "$REPO_DIR"
 echo "📥 Pulling latest changes from develop branch..."
